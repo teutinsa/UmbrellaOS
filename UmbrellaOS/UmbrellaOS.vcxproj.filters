@@ -20,4 +20,14 @@
     </None>
     <None Include="makefile" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\kernel\main.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\kernel\types.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>
