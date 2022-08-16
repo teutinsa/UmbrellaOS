@@ -19,6 +19,12 @@
       <Filter>Quelldateien</Filter>
     </None>
     <None Include="makefile" />
+    <None Include="src\kernel\kernel_entry.asm">
+      <Filter>Quelldateien</Filter>
+    </None>
+    <None Include="src\boot\zeros.asm">
+      <Filter>Quelldateien</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\kernel\main.cpp">

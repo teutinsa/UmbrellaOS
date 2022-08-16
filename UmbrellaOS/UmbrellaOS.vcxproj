@@ -117,6 +117,8 @@
   <ItemGroup>
     <None Include="makefile" />
     <None Include="src\boot\boot.asm" />
+    <None Include="src\boot\zeros.asm" />
+    <None Include="src\kernel\kernel_entry.asm" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\kernel\main.cpp" />
