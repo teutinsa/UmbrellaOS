@@ -30,9 +30,15 @@
     <ClCompile Include="src\kernel\main.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="src\kernel\Terminal.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\kernel\types.h">
+    <ClInclude Include="src\kernel\Types.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="src\kernel\Terminal.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
