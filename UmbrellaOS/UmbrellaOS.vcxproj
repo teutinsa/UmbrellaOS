@@ -125,6 +125,7 @@
     <ClCompile Include="src\kernel\Terminal.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\kernel\IO.h" />
     <ClInclude Include="src\kernel\Types.h" />
     <ClInclude Include="src\kernel\Terminal.h" />
   </ItemGroup>
