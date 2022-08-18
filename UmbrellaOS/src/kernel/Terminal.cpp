@@ -30,8 +30,8 @@ void Terminal::SetCursor(WORD x, WORD y)
 
 void Terminal::HideCursor()
 {
-	outb(0x03D4, 0x0A);
-	outb(0x03D5, 0x20);
+	outb(0x3D4, 0x0A);
+	outb(0x3D5, 0x20);
 }
 
 void Terminal::EnableCursor()

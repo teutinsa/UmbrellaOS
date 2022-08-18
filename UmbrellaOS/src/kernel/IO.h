@@ -1,7 +1,7 @@
 #pragma once
 #include "Types.h"
 
-static inline void outb(BYTE value, WORD port)
+static inline void outb(WORD port, BYTE value)
 {
 	__asm volatile ("outb %0, %1" : : "a" (value), "Nd" (port));
 }

@@ -16,13 +16,13 @@ bin/zeros.bin: src/boot/zeros.asm
 	nasm $< -f bin -o $@
 
 tmp/kernel_entry.o: src/kernel/kernel_entry.asm
-	nasm $< -f elf -o $@
+	nasm $< -f elf64 -o $@
 
 bin/kernel.bin: tmp/kernel_entry.o tmp/kernel.o tmp/Terminal.o
-	i686-elf-ld -o $@ -Ttext 0x1000 $^ --oformat binary
+	x86_64-elf-ld -o $@ -Ttext 0x1000 $^ --oformat binary
 
 tmp/kernel.o: src/kernel/main.cpp
-	i686-elf-gcc -ffreestanding -g -c $^ -o $@
+	x86_64-elf-g++ -ffreestanding -m64 -g -c $^ -o $@
 
 tmp/Terminal.o: src/kernel/Terminal.cpp
-	i686-elf-gcc -ffreestanding -g -c $^ -o $@
+	x86_64-elf-g++ -ffreestanding -m64 -g -c $^ -o $@
