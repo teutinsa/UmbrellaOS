@@ -5,7 +5,7 @@ KERNEL_LOC equ 0x8FD0
 
 _start:
 	mov [_BootDisk], dl
-
+	
 	xor ax, ax
 	mov ds, ax
 	mov es, ax
@@ -58,7 +58,7 @@ _start:
 	push 3				; sector num
 	call DiskRead
 	jc .error
-
+	
 	cli
 	lgdt [GDT_descriptor]
 	mov eax, cr0

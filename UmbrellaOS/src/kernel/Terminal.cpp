@@ -1,20 +1,13 @@
 #include "Terminal.h"
 #include "IO.h"
 
-#define VGA_MEM reinterpret_cast<volatile char*>(0xB8000)
-#define VGA_WIDTH 80
-#define VGA_HEIGHT 25
-#define VGA_ELMSIZE 2
-#define VGA_STRIDE (VGA_WIDTH * VGA_ELMSIZE)
-#define VGA_SIZE (VGA_STRIDE * VGA_HEIGHT)
-
-void Terminal::Clear()
+void Terminal::Clear(BYTE color)
 {
 	WORD i = 0;
 	while (i < VGA_SIZE)
 	{
 		VGA_MEM[i++] = 0;
-		VGA_MEM[i++] = 0x0F;
+		VGA_MEM[i++] = color;
 	}
 	SetCursor(0, 0);
 }
@@ -46,10 +39,20 @@ void Terminal::EnableCursor(WORD start, WORD end)
 
 void Terminal::PutString(WORD x, WORD y, const char* str, BYTE color)
 {
-	volatile char* vidmem = VGA_MEM;
-	WORD i = 0;
-	while (str[i] != '\0')
+	volatile char* vidmem = VGA_MEM + (y * VGA_STRIDE + x * VGA_ELMSIZE);
+	while (*str != '\0')
 	{
+		*vidmem++ = *str++;
+		*vidmem++ = color;
+	}
+}
 
+void Terminal::PutString(WORD x, WORD y, const char* str)
+{
+	volatile char* vidmem = VGA_MEM + (y * VGA_STRIDE + x * VGA_ELMSIZE);
+	while (*str != '\0')
+	{
+		*vidmem++ = *str++;
+		*vidmem++;
 	}
 }
