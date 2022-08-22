@@ -1,4 +1,5 @@
 #pragma once
+
 typedef short WORD;
 typedef int DWORD;
 typedef long QWORD;

@@ -4,12 +4,8 @@
 
 extern "C" void kmain(void* memmap)
 {
-	Terminal::HideCursor();
-	Terminal::Clear(0x0F);
+	Terminal::EnableCursor(14, 15);
+	Terminal::Clear(0x08);
 
-	const char* str = "Umbrella OS (C) 2022 Florian Schumacher";
-	char tmp[512];
-	memset(tmp, 0, sizeof(tmp));
-	memcpy(str, tmp, strlen(str));
-	Terminal::PutString(0, 0, tmp);
+	Terminal::Print("Umbrella OS (C) 2022\r\n", 0x0F);
 }

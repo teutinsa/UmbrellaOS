@@ -49,7 +49,7 @@ _start:
 	call Print
 	jmp .error
 	.is64:
-
+	
 	push 0x8000
 	call MapMem
 	

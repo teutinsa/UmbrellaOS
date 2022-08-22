@@ -25,5 +25,15 @@ void memset(void* dest, BYTE value, UQWORD size)
 		"rep stosb\n"
 		:
 		: "D"(dest), "a"(value), "c"(size)
+		: "memory"
 	);
+}
+
+bool strcmp(const char* str0, const char* str1, UQWORD size)
+{
+	//TODO: do this in assembly
+	for (UQWORD i = 0; i < size; i++)
+		if (str0[i] != str1[i])
+			return false;
+	return true;
 }

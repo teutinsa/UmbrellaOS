@@ -16,6 +16,9 @@ public:
 	static void HideCursor();
 	static void EnableCursor(WORD start, WORD end);
 	static void PutString(WORD x, WORD y, const char* str, BYTE color);
-	static void PutString(WORD x, WORD y, const char* str);
+	static WORD GetCursorPos();
+	static void Print(const char* str, BYTE color);
+	static void NewLine();
+	static void Scroll(BYTE color);
 };
 
