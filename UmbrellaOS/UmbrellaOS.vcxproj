@@ -115,6 +115,7 @@
     </BuildLog>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <None Include="link.ld" />
     <None Include="makefile" />
     <None Include="src\boot\boot.asm" />
     <None Include="src\boot\zeros.asm" />
@@ -124,9 +125,11 @@
     <ClCompile Include="src\kernel\main.cpp" />
     <ClCompile Include="src\kernel\String.cpp" />
     <ClCompile Include="src\kernel\Terminal.cpp" />
+    <ClCompile Include="src\kernel\Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\kernel\IO.h" />
+    <ClInclude Include="src\kernel\MemMap.h" />
     <ClInclude Include="src\kernel\String.h" />
     <ClInclude Include="src\kernel\Types.h" />
     <ClInclude Include="src\kernel\Terminal.h" />

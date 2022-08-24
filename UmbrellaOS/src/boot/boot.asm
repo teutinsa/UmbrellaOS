@@ -1,7 +1,7 @@
 [bits 16]
 [org 0x7C00]
 
-KERNEL_LOC equ 0x8FD0
+KERNEL_LOC equ 0x0500
 
 _start:
 	mov [_BootDisk], dl
@@ -97,6 +97,8 @@ DiskRead:
 	mov dl, [_BootDisk]
 	mov bx, [bp+8]
 	int 0x13
+	cmp al, [bp+6]
+	je .end
 	jnc .end
 	push _DiskErrorString
 	call Print
@@ -317,6 +319,9 @@ long_mode:
 	mov fs, ax
 	mov gs, ax
 	mov ss, ax
+	
+	mov rbp, 0x0007FFFF
+	mov rsp, rbp
 
 	mov rbx, VGA_MEM
 	mov byte [rbx], 'L'

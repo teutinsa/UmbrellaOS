@@ -11,14 +11,13 @@
 class Terminal
 {
 public:
-	static void Clear(BYTE color = 0x0F);
+	static void Clear(BYTE color);
 	static void SetCursor(WORD x, WORD y);
 	static void HideCursor();
 	static void EnableCursor(WORD start, WORD end);
 	static void PutString(WORD x, WORD y, const char* str, BYTE color);
 	static WORD GetCursorPos();
 	static void Print(const char* str, BYTE color);
-	static void NewLine();
 	static void Scroll(BYTE color);
 };
 

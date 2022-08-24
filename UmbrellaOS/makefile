@@ -18,8 +18,8 @@ bin/zeros.bin: src/boot/zeros.asm
 tmp/kernel_entry.o: src/kernel/kernel_entry.asm
 	nasm $< -f elf64 -o $@
 
-bin/kernel.bin: tmp/kernel_entry.o tmp/kernel.o tmp/Terminal.o tmp/String.o
-	x86_64-elf-ld -o $@ -Ttext 0x8FD0 $^ --oformat binary
+bin/kernel.bin: tmp/kernel_entry.o tmp/kernel.o tmp/Terminal.o tmp/String.o tmp/Utils.o
+	x86_64-elf-ld -o $@ -T link.ld $^
 
 tmp/kernel.o: src/kernel/main.cpp
 	x86_64-elf-g++ -ffreestanding -m64 -g -c $^ -o $@
@@ -31,4 +31,7 @@ tmp/Terminal.o: src/kernel/Terminal.cpp
 	x86_64-elf-g++ -ffreestanding -m64 -g -c $^ -o $@
 
 tmp/String.o: src/kernel/String.cpp
+	x86_64-elf-g++ -ffreestanding -m64 -g -c $^ -o $@
+
+tmp/Utils.o: src/kernel/Utils.cpp
 	x86_64-elf-g++ -ffreestanding -m64 -g -c $^ -o $@

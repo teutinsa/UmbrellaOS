@@ -106,15 +106,6 @@ void Terminal::Print(const char* str, BYTE color)
 	SetCursor(curX, curY);
 }
 
-void Terminal::NewLine()
-{
-	WORD curPos = GetCursorPos();
-	WORD curX = curPos % VGA_WIDTH;
-	WORD curY = curPos / VGA_WIDTH;
-
-
-}
-
 void Terminal::Scroll(BYTE color)
 {
 	for (BYTE i = 1; i < VGA_HEIGHT; i++)

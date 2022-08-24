@@ -37,3 +37,14 @@ bool strcmp(const char* str0, const char* str1, UQWORD size)
 			return false;
 	return true;
 }
+
+void rmemcpy(const void* start, const void* end, void* dest)
+{
+	char* beg = const_cast<char*>(reinterpret_cast<const char*>(start));
+
+	do
+	{
+		*reinterpret_cast<char*>(dest) = *beg++;
+	}
+	while (beg <= reinterpret_cast<const char*>(end));
+}

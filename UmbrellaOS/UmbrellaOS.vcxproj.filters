@@ -25,6 +25,7 @@
     <None Include="src\boot\zeros.asm">
       <Filter>Quelldateien</Filter>
     </None>
+    <None Include="link.ld" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\kernel\main.cpp">
@@ -34,6 +35,9 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="src\kernel\String.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="src\kernel\Utils.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
@@ -51,6 +55,9 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="src\kernel\Utils.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="src\kernel\MemMap.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
