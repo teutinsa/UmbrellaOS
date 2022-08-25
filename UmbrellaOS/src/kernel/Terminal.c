@@ -2,7 +2,7 @@
 #include "IO.h"
 #include "String.h"
 
-void Terminal::Clear(BYTE color)
+void Clear(BYTE color)
 {
 	WORD i = 0;
 	while (i < VGA_SIZE)
@@ -13,7 +13,7 @@ void Terminal::Clear(BYTE color)
 	SetCursor(0, 0);
 }
 
-void Terminal::SetCursor(WORD x, WORD y)
+void SetCursor(WORD x, WORD y)
 {
 	WORD pos = y * VGA_WIDTH + x;
 
@@ -23,13 +23,13 @@ void Terminal::SetCursor(WORD x, WORD y)
 	outb(0x3D5, (WORD)((pos >> 8) & 0xFF));
 }
 
-void Terminal::HideCursor()
+void HideCursor()
 {
 	outb(0x3D4, 0x0A);
 	outb(0x3D5, 0x20);
 }
 
-void Terminal::EnableCursor(WORD start, WORD end)
+void EnableCursor(WORD start, WORD end)
 {
 	outb(0x3D4, 0x0A);
 	outb(0x3D5, (inb(0x3D5) & 0xC0) | start);
@@ -38,7 +38,7 @@ void Terminal::EnableCursor(WORD start, WORD end)
 	outb(0x3D5, (inb(0x3E0) & 0xE0) | end);
 }
 
-void Terminal::PutString(WORD x, WORD y, const char* str, BYTE color)
+void PutString(WORD x, WORD y, const char* str, BYTE color)
 {
 	volatile char* vidmem = VGA_MEM + (y * VGA_STRIDE + x * VGA_ELMSIZE);
 	while (*str != '\0')
@@ -48,7 +48,7 @@ void Terminal::PutString(WORD x, WORD y, const char* str, BYTE color)
 	}
 }
 
-WORD Terminal::GetCursorPos()
+WORD GetCursorPos()
 {
 	WORD pos = 0;
 	outb(0x3D4, 0x0F);
@@ -58,7 +58,7 @@ WORD Terminal::GetCursorPos()
 	return pos;
 }
 
-void Terminal::Print(const char* str, BYTE color)
+void Print(const char* str, BYTE color)
 {
 	WORD curPos = GetCursorPos();
 	WORD curX = curPos % VGA_WIDTH;
@@ -106,12 +106,12 @@ void Terminal::Print(const char* str, BYTE color)
 	SetCursor(curX, curY);
 }
 
-void Terminal::Scroll(BYTE color)
+void Scroll(BYTE color)
 {
 	for (BYTE i = 1; i < VGA_HEIGHT; i++)
 	{
-		memcpy(const_cast<const char*>(VGA_MEM + VGA_STRIDE * i), const_cast<char*>(VGA_MEM + VGA_STRIDE * (i - 1)), VGA_STRIDE);
+		memcpy((const char*)(VGA_MEM + VGA_STRIDE * i), (char*)(VGA_MEM + VGA_STRIDE * (i - 1)), VGA_STRIDE);
 		if (i == VGA_HEIGHT - 1)
-			memset(const_cast<char*>(VGA_MEM + VGA_STRIDE * i), 0, VGA_STRIDE);
+			memset((char*)(VGA_MEM + VGA_STRIDE * i), 0, VGA_STRIDE);
 	}
 }

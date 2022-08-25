@@ -122,12 +122,14 @@
     <None Include="src\kernel\kernel_entry.asm" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\kernel\main.cpp" />
-    <ClCompile Include="src\kernel\String.cpp" />
-    <ClCompile Include="src\kernel\Terminal.cpp" />
-    <ClCompile Include="src\kernel\Utils.cpp" />
+    <ClCompile Include="src\kernel\Memory.c" />
+    <ClCompile Include="src\kernel\main.c" />
+    <ClCompile Include="src\kernel\String.c" />
+    <ClCompile Include="src\kernel\Terminal.c" />
+    <ClCompile Include="src\kernel\Utils.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\kernel\Memory.h" />
     <ClInclude Include="src\kernel\IO.h" />
     <ClInclude Include="src\kernel\MemMap.h" />
     <ClInclude Include="src\kernel\String.h" />

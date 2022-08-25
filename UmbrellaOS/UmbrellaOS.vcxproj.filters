@@ -28,16 +28,19 @@
     <None Include="link.ld" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\kernel\main.cpp">
+    <ClCompile Include="src\kernel\main.c">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="src\kernel\Terminal.cpp">
+    <ClCompile Include="src\kernel\Terminal.c">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="src\kernel\String.cpp">
+    <ClCompile Include="src\kernel\String.c">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="src\kernel\Utils.cpp">
+    <ClCompile Include="src\kernel\Utils.c">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="src\kernel\Memory.c">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
@@ -58,6 +61,9 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="src\kernel\MemMap.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="src\kernel\Memory.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

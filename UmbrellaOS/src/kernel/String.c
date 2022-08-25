@@ -29,22 +29,22 @@ void memset(void* dest, BYTE value, UQWORD size)
 	);
 }
 
-bool strcmp(const char* str0, const char* str1, UQWORD size)
+int strcmp(const char* str0, const char* str1, UQWORD size)
 {
 	//TODO: do this in assembly
 	for (UQWORD i = 0; i < size; i++)
 		if (str0[i] != str1[i])
-			return false;
-	return true;
+			return 0;
+	return 1;
 }
 
 void rmemcpy(const void* start, const void* end, void* dest)
 {
-	char* beg = const_cast<char*>(reinterpret_cast<const char*>(start));
+	char* beg = (char*)((const char*)start);
 
 	do
 	{
-		*reinterpret_cast<char*>(dest) = *beg++;
+		*((char*)dest) = *beg++;
 	}
-	while (beg <= reinterpret_cast<const char*>(end));
+	while (beg <= ((char*)end));
 }
