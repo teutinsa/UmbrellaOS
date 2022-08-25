@@ -18,20 +18,20 @@ bin/zeros.bin: src/boot/zeros.asm
 tmp/kernel_entry.o: src/kernel/kernel_entry.asm
 	nasm $< -f elf64 -o $@
 
-bin/kernel.bin: tmp/kernel_entry.o tmp/kernel.o tmp/Terminal.o tmp/String.o tmp/Utils.o
+bin/kernel.bin: tmp/kernel_entry.o tmp/kernel.o tmp/Terminal.o tmp/String.o tmp/Utils.o tmp/Memory.o
 	x86_64-elf-ld -o $@ -T link.ld $^
 
-tmp/kernel.o: src/kernel/main.cpp
-	x86_64-elf-g++ -ffreestanding -m64 -g -c $^ -o $@
+tmp/kernel.o: src/kernel/main.c
+	x86_64-elf-gcc -ffreestanding -m64 -g -c $^ -o $@
 
-tmp/Terminal.o: src/kernel/Terminal.cpp
-	x86_64-elf-g++ -ffreestanding -m64 -g -c $^ -o $@
+tmp/Terminal.o: src/kernel/Terminal.c
+	x86_64-elf-gcc -ffreestanding -m64 -g -c $^ -o $@
 
-tmp/Terminal.o: src/kernel/Terminal.cpp
-	x86_64-elf-g++ -ffreestanding -m64 -g -c $^ -o $@
+tmp/Terminal.o: src/kernel/Terminal.c
+	x86_64-elf-gcc -ffreestanding -m64 -g -c $^ -o $@
 
-tmp/String.o: src/kernel/String.cpp
-	x86_64-elf-g++ -ffreestanding -m64 -g -c $^ -o $@
+tmp/String.o: src/kernel/String.c
+	x86_64-elf-gcc -ffreestanding -m64 -g -c $^ -o $@
 
-tmp/Utils.o: src/kernel/Utils.cpp
-	x86_64-elf-g++ -ffreestanding -m64 -g -c $^ -o $@
+tmp/Utils.o: src/kernel/Utils.c
+	x86_64-elf-gcc -ffreestanding -m64 -g -c $^ -o $@
