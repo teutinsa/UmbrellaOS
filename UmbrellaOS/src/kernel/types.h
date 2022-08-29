@@ -8,3 +8,5 @@ typedef unsigned char BYTE;
 typedef unsigned short UWORD;
 typedef unsigned int UDWORD;
 typedef unsigned long UQWORD;
+
+#define NULL ((void*)0)

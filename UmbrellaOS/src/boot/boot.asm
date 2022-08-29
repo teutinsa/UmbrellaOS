@@ -1,7 +1,8 @@
 [bits 16]
 [org 0x7C00]
 
-KERNEL_LOC equ 0x0500
+KERNEL_LOC equ 0x5000
+PAGESTRUC_LOC equ 0x1000
 
 _start:
 	mov [_BootDisk], dl
@@ -225,7 +226,7 @@ protected_mode:
 	and eax, ~(1 << 31)
 	mov cr0, eax
 
-	mov edi, 0x1000
+	mov edi, PAGESTRUC_LOC
 	mov cr3, edi
 	xor eax, eax
 	mov ecx, 4096
@@ -262,8 +263,6 @@ protected_mode:
 
 	lgdt [GDT.Pointer]
 	jmp GDT.Code:long_mode
-
-	jmp $
 
 Clear:
 	push ebp
