@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include "Memory.h"
 #include "Utils.h"
 #include "Terminal.h"
@@ -28,3 +29,6 @@ void* VirtualAlloc(UQWORD size)
 void VirtualFree(void* block)
 {
 }
+=======
+#include "Memory.h"
+>>>>>>> 94924cee4ba14e69d60fddb5621d28f6620e6514
