@@ -38,3 +38,6 @@ tmp/Utils.o: src/kernel/Utils.c
 
 tmp/Memory.o: src/kernel/Memory.c
 	x86_64-elf-gcc -ffreestanding -m64 -g -c $^ -o $@
+
+tmp/Memory.o: src/kernel/Memory.c
+	x86_64-elf-gcc -ffreestanding -m64 -g -c $^ -o $@
