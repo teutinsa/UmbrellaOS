@@ -35,9 +35,6 @@ tmp/String.o: src/kernel/String.c
 
 tmp/Utils.o: src/kernel/Utils.c
 	x86_64-elf-gcc -ffreestanding -m64 -g -c $^ -o $@
-<<<<<<< HEAD
 
 tmp/Memory.o: src/kernel/Memory.c
 	x86_64-elf-gcc -ffreestanding -m64 -g -c $^ -o $@
-=======
->>>>>>> 94924cee4ba14e69d60fddb5621d28f6620e6514
