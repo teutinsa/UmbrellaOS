@@ -264,8 +264,6 @@ protected_mode:
 	lgdt [GDT.Pointer]
 	jmp GDT.Code:long_mode
 
-	jmp $
-
 Clear:
 	push ebp
 	mov ebp, esp
