@@ -5,7 +5,11 @@
 #include "MemMap.h"
 #include "Memory.h"
 
+<<<<<<< HEAD
+int kmain()
+=======
 void kmain()
+>>>>>>> 94924cee4ba14e69d60fddb5621d28f6620e6514
 {
 	EnableCursor(14, 15);
 	Clear(0x0F);
@@ -13,7 +17,14 @@ void kmain()
 	Print("Umbrella OS (C) 2022 Florian Schumacher\r\n", 0x0F);
 
 	DWORD memMapNum = *((DWORD*)0x8000);
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+	
+=======
+>>>>>>> 94924cee4ba14e69d60fddb5621d28f6620e6514
+>>>>>>> 62176deb1b692053e1f2980e3030a9d759864af6
 	char buffer[12];
 	itoa(memMapNum, buffer, sizeof(buffer));
 	Print("Number of memory map entries: ", 0x0F);
