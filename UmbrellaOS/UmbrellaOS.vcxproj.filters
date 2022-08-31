@@ -26,6 +26,9 @@
       <Filter>Quelldateien</Filter>
     </None>
     <None Include="link.ld" />
+    <None Include="src\kernel\IDT.asm">
+      <Filter>Quelldateien</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\kernel\main.c">
@@ -41,6 +44,9 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="src\kernel\Memory.c">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="src\kernel\IDT.c">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
@@ -64,6 +70,9 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="src\kernel\Memory.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="src\kernel\IDT.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

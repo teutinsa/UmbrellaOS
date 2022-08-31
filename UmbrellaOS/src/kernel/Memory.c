@@ -2,18 +2,21 @@
 #include "Utils.h"
 #include "Terminal.h"
 
-//PageInfo pageInfos[1024];
-//UQWORD pageCount = 0;
+static UQWORD pageCount = 0;
 
 void InitPages(const MemMapEntry* entry)
 {
-	//pageCount = entry->length / 4096;
-	
+	pageCount = entry->length / 0x1000;
+	char buffer[22];
+	itoa(pageCount, buffer, sizeof(buffer));
+	Print("Estimated Page count: ", 0x0F);
+	Print(buffer, 0x0F);
+	Print("\r\n", 0x0F);
 }
 
 const PageInfo* RequestPage()
 {
-	return (const PageInfo*)NULL;
+	return NULL;
 }
 
 void FreePage(const PageInfo* page)
