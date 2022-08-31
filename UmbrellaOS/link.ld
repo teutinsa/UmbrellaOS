@@ -1,4 +1,4 @@
-﻿OUTPUT_FORMAT(binary)
+﻿OUTPUT_FORMAT(elf64-x86-64)
 
 phys = 0x5000;
 

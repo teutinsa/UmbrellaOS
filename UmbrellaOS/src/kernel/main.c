@@ -4,6 +4,7 @@
 #include "Utils.h"
 #include "MemMap.h"
 #include "Memory.h"
+#include "IDT.h"
 
 void kmain()
 {
@@ -12,6 +13,9 @@ void kmain()
 
 	Print("Umbrella OS (C) 2022 Florian Schumacher\r\n", 0x0F);
 
+	Print("Loading IDT...\r\n", 0x0F);
+	LoadIDT();
+
 	DWORD memMapNum = *((DWORD*)0x8000);
 	char buffer[12];
 	itoa(memMapNum, buffer, sizeof(buffer));
@@ -19,6 +23,7 @@ void kmain()
 	Print(buffer, 0x0F);
 	Print("\r\n", 0x0F);
 
+	const MemMapEntry* qualifiedEntry = NULL;
 	for (DWORD i = 0; i < memMapNum; i++)
 	{
 		char tmp[22];
@@ -54,5 +59,16 @@ void kmain()
 			Print("no", 0x0F);
 
 		Print(" }\r\n", 0x0F);
+
+		if (entry->type == MEMMAP_TYPE_USABLE && ((entry->exAttrib & (1 << 0)) >= 1) && ((entry->exAttrib & (1 << 1)) < 1))
+			qualifiedEntry = entry;
 	}
+
+	if (!qualifiedEntry)
+	{
+		Print("No qualified entries found!\r\n", 0x0F);
+		return;
+	}
+
+	InitPages(qualifiedEntry);
 }
